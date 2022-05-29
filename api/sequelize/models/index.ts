@@ -4,7 +4,7 @@ import db from '../config/database.config';
 interface CharacterAttribute {
   id: number,
   name: string,
-  imgUrl: string
+  img_url: string
 }
 
 export class CharacterInstance extends Model<CharacterAttribute> { }
@@ -15,12 +15,13 @@ CharacterInstance.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    imgUrl: {
+    img_url: {
       type: DataTypes.STRING,
     },
   },

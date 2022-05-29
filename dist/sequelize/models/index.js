@@ -14,12 +14,13 @@ CharacterInstance.init({
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true
     },
     name: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
-    imgUrl: {
+    img_url: {
         type: sequelize_1.DataTypes.STRING,
     },
 }, {
