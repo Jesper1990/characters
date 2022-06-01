@@ -9,15 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const characters_model_1 = require("../../../sequelize/models/characters/characters.model");
+const users_model_1 = require("../../../sequelize/models/users/users.model");
 function getAll(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const created = yield characters_model_1.CharacterInstance.findAll();
-            return res.json({ created, msg: 'Successfully fetched all characters' });
+            const created = yield users_model_1.UserInstance.findAll();
+            return res.json({ created, msg: 'Successfully fetched all users' });
         }
         catch (e) {
-            return res.json({ msg: 'Failed to create character', status: 500, route: '/getAll' });
+            return res.json({ msg: 'Failed to fetch users', status: 500, route: '/users' });
         }
     });
 }
@@ -25,22 +25,23 @@ function getById(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const id = req.body.id;
         try {
-            const created = yield characters_model_1.CharacterInstance.findByPk(id);
-            return res.json({ created, msg: 'Successfully fetched character by id' });
+            const created = yield users_model_1.UserInstance.findByPk(id);
+            return res.json({ created, msg: `User with id: ${id} has been fetched` });
         }
         catch (e) {
-            return res.json({ msg: `Character with id: ${id} does not exist`, status: 404, route: '/getById' });
+            return res.json({ msg: `User with id: ${id} does not exist.`, status: 404, route: `/users/${id}` });
         }
     });
 }
 function create(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const created = yield characters_model_1.CharacterInstance.create(Object.assign({}, req.body));
-            return res.json({ created, msg: 'Successfully created character ' });
+            console.log(req.body);
+            const created = yield users_model_1.UserInstance.create(Object.assign({}, req.body));
+            return res.json({ created, msg: 'Successfully created user!' });
         }
         catch (e) {
-            return res.json({ msg: 'Failed to create character', status: 500, route: '/create' });
+            return res.json({ msg: 'Failed to create user', status: 500, route: '/users' });
         }
     });
 }

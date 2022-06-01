@@ -15,8 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const characters_1 = __importDefault(require("./routes/public/characters"));
+const users_1 = __importDefault(require("./routes/public/users"));
 const publicRoutes = {
-    characters: characters_1.default
+    characters: characters_1.default,
+    users: users_1.default
 };
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());

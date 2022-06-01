@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { CharacterInstance } from '../../../sequelize/models';
+import { CharacterInstance } from '../../../sequelize/models/characters/characters.model';
 
 async function getAll(req: Request, res: Response) {
   try {

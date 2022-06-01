@@ -1,9 +1,11 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import characters from './routes/public/characters'
+import users from './routes/public/users'
 
 const publicRoutes = {
-  characters
+  characters,
+  users
 }
 
 const app: Application = express()
